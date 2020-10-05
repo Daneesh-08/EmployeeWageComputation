@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace EmpWageComp
@@ -8,18 +9,23 @@ namespace EmpWageComp
     {
         public const int IS_PART_TIME = 1;
         public const int IS_FULL_TIME = 2;
-        public const int EMP_RATE_PER_HOUR = 20;
-        public const int NUM_OF_WORKING_DAYS = 20;
-        public const int MAX_HRS_IN_MONTH = 100;
-        public static int CompEmpWage()
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Employee Wage for Multiple Companies : ");
+            Console.WriteLine("\n");
+            CompEmpWage("'Jio'", 25, 100, 30);
+            CompEmpWage("'Airtel'", 20, 200, 20);
+        }
+        public static void CompEmpWage(String Company, int EMP_RATE_PER_HOUR, int Totalhrs, int Totaldays)
         {
             int totalEmpHrs = 0;
             int overallWorkingDays = 0;
-            int empHrs;
-            while (totalEmpHrs <= MAX_HRS_IN_MONTH && overallWorkingDays <= NUM_OF_WORKING_DAYS)
+            int overallEmpWage = 0;
+            int empHrs ;
+            Random random = new Random();
+            while (totalEmpHrs <= Totalhrs && overallWorkingDays <= Totaldays)
             {
-                overallWorkingDays++;
-                Random random = new Random();
+                overallWorkingDays++;                
                 int empCheck = random.Next(0, 3);
                 switch (empCheck)
                 {
@@ -34,14 +40,10 @@ namespace EmpWageComp
                         break;
                 }
                 totalEmpHrs += empHrs;
+                overallEmpWage +=  empHrs * EMP_RATE_PER_HOUR;
             }
-            int overallEmpWage = totalEmpHrs * EMP_RATE_PER_HOUR;
-            Console.WriteLine("Total Emp Wage : " + overallEmpWage);
-            return overallEmpWage;
+            Console.WriteLine("Total Employee Wage for " +Company+" : "+ overallEmpWage);
         }
-        static void main(string[] args)
-        {
-            CompEmpWage();
-        }
+        
     }
 }
