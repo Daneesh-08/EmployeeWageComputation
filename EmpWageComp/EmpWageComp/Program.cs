@@ -10,7 +10,7 @@ namespace EmpWageComp
             Console.WriteLine("Employee Wage for Multiple Companies : ");
             Console.WriteLine("\n");
             wage.CompEmpWage("'Jio'", 25, 100, 30);
-            wage.CompEmpWage("'Airtel'", 20, 200, 20);
+            wage.CompEmpWage("'Airtel'", 20, 200, 20);           
         }
     }
 }
