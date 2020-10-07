@@ -6,11 +6,14 @@ namespace EmpWageComp
     {
         static void Main(string[] args)
         {
-            Wage wage = new Wage();
             Console.WriteLine("Employee Wage for Multiple Companies : ");
             Console.WriteLine("\n");
-            wage.CompEmpWage("'Jio'", 25, 100, 30);
-            wage.CompEmpWage("'Airtel'", 20, 200, 20);           
+            EmpWageBuilder obj1 = new EmpWageBuilder("Jio", 20, 200, 30);
+            EmpWageBuilder obj2 = new EmpWageBuilder("Airtel", 25, 100, 20);
+            obj1.CompEmpWage();
+            obj2.CompEmpWage();
+            Console.WriteLine(obj1.Save());
+            Console.WriteLine(obj2.Save());
         }
     }
 }
